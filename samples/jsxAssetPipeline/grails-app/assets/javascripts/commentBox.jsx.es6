@@ -5,7 +5,9 @@ import CommentList from 'commentList';
 class CommentBox extends React.Component {
   constructor() {
     super();
-    this.state = {comments: []}
+    this.state = {comments: []};
+
+    //TODO: Asset pipeline doesn't yet support public class fields, so we have to use normal functions and call bind()
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
   }
 
