@@ -8,13 +8,9 @@ class BookForm extends React.Component {
   constructor() {
     super();
     this.state = { author: '', title: '' };
-
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const author = this.state.author.trim();
@@ -24,15 +20,15 @@ class BookForm extends React.Component {
     }
     this.props.onSubmit({author: author, title: title});
     this.setState({author: '', title: ''});
-  }
+  };
 
-  handleAuthorChange(event) {
+  handleAuthorChange = (event) => {
     this.setState({ author: event.target.value });
-  }
+  };
 
-  handleTitleChange(event) {
+  handleTitleChange = (event) => {
     this.setState({ title: event.target.value });
-  }
+  };
 
   render() {
 

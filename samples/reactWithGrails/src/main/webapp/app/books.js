@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-require('./../styles/style.css');
-require('whatwg-fetch');
+import './../styles/style.css';
+import 'whatwg-fetch';
 
 import BookForm from './book-form';
 import BookList from './book-list';
@@ -12,11 +11,10 @@ class Books extends React.Component {
   constructor() {
     super();
 
-    this.submitNewBook = this.submitNewBook.bind(this);
     this.state = { books: [] };
   }
 
-  submitNewBook(book) {
+  submitNewBook = (book) => {
     fetch('/api/book', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -28,7 +26,7 @@ class Books extends React.Component {
         this.setState({books});
       })
       .catch(ex => console.error('Unable to load books', ex));
-  }
+  };
 
   componentDidMount() {
     fetch('/api/book')
